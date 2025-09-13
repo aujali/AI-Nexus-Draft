@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core System Colors */
+    --color-background: #DBF3E4; /* mint-50 - Calm focus environment */
+    --color-foreground: #2D3748; /* gray-800 - Clear communication */
+    --color-card: #F8FDFB; /* green-25 - Subtle conversation depth */
+    --color-card-foreground: #2D3748; /* gray-800 - Clear communication */
+    --color-popover: #F8FDFB; /* green-25 - Subtle conversation depth */
+    --color-popover-foreground: #2D3748; /* gray-800 - Clear communication */
+    --color-muted: #E2E8F0; /* gray-200 - Subtle interface elements */
+    --color-muted-foreground: #718096; /* gray-500 - Supportive hierarchy */
+    --color-border: #E2E8F0; /* gray-200 - Minimal separation */
+    --color-input: #FFFFFF; /* white - Clean input background */
+    --color-ring: #96C8B7; /* sage-400 - Focus indication */
+
+    /* Brand Colors */
+    --color-primary: #C0C0C0; /* silver - Sophisticated intelligence */
+    --color-primary-foreground: #2D3748; /* gray-800 - High contrast text */
+    --color-secondary: #96C8B7; /* sage-400 - Trustworthy growth */
+    --color-secondary-foreground: #2D3748; /* gray-800 - Clear readability */
+    --color-accent: #F3D096; /* gold-300 - Achievement celebration */
+    --color-accent-foreground: #2D3748; /* gray-800 - Readable contrast */
+
+    /* Semantic Colors */
+    --color-success: #48BB78; /* green-400 - Positive AI response */
+    --color-success-foreground: #FFFFFF; /* white - High contrast */
+    --color-warning: #ED8936; /* orange-400 - Gentle attention */
+    --color-warning-foreground: #FFFFFF; /* white - Clear visibility */
+    --color-error: #E53E3E; /* red-500 - Helpful concern */
+    --color-error-foreground: #FFFFFF; /* white - Alert clarity */
+    --color-destructive: #E53E3E; /* red-500 - Helpful concern */
+    --color-destructive-foreground: #FFFFFF; /* white - Alert clarity */
+
+    /* Typography */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* Spacing & Layout */
+    --radius: 0.5rem; /* 8px - Balanced geometric precision */
+    --shadow-sm: 0 2px 8px rgba(150, 200, 183, 0.15);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+    line-height: 1.2;
+  }
+
+  /* Animation Standards */
+  .animate-fade-in {
+    animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceGentle {
+    from { 
+      opacity: 0;
+      transform: scale(0);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Focus States */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+}
